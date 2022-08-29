@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+import "other.proto";
+import "nested.proto";
+package com.example.protobuf;
+option java_outer_classname = "ComplexMessageProtos";
+
+message SimpleMessage {
+	string query = 1;
+	int32  results_per_page = 2;
+    bool   is_active = 4;
+    enum Corpus {
+        UNIVERSAL = 0;
+        WEB = 1;
+        IMAGES = 2;
+        LOCAL = 3;
+        NEWS = 4;
+        PRODUCTS = 5;
+        VIDEO = 6;
+    }
+    Corpus corpus = 5;
+    google.protobuf.Timestamp tstamp = 6;
+}
+
+message ComplexMessage {
+    repeated SimpleMessage simple = 1;
+    int32 copies = 2;
+    OtherMessage other = 3;
+    map<string, int32> map_name_age = 4;
+    Nested4 nested4 = 5;
+}

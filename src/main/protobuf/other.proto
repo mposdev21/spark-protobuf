@@ -1,0 +1,47 @@
+syntax = "proto3";
+package com.example.protobuf;
+option java_outer_classname = "OtherMessageProtos";
+
+enum BasicEnum {
+    NOTHING = 0;
+    FIRST = 1;
+    SECOND = 2;
+}
+message OtherMessage {
+    string string_value = 1;
+
+	int32 int32_value = 2;
+	uint32 uint32_value = 3;
+	sint32 sint32_value = 4;
+	fixed32 fixed32_value = 5;
+	sfixed32 sfixed32_value = 6;
+
+	int64 int64_value = 7;
+	uint64 uint64_value = 8;
+	sint64 sint64_value = 9;
+	fixed64 fixed64_value = 10;
+	sfixed64 sfixed64_value = 11;
+
+    double double_value = 12;
+    float float_value = 13;
+    
+    bool bool_value = 14;
+    bytes bytes_value = 15; 
+
+    enum NestedEnum {
+      ESTED_NOTHING = 0;
+      NESTED_FIRST = 1;
+      NESTED_SECOND = 2;
+    }
+    BasicEnum basic_enum = 16;
+    NestedEnum nested_enum = 17;
+
+    repeated string rstring_value = 18;
+    repeated int32 rint32_value = 19;
+    repeated bool rbool_value = 20;
+    repeated int64 rint64_value = 21;
+    repeated float rfloat_value = 22;
+    repeated double rdouble_value = 23;
+    repeated bytes rbytes_value = 24;
+    repeated NestedEnum rnested_enum = 25;
+}

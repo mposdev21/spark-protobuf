@@ -1,0 +1,20 @@
+syntax = "proto3";
+package com.example.protobuf;
+option java_outer_classname = "NestedMessageProtos";
+
+message Nested1 {
+    string nested1_string_value = 1;
+    int32 nested1_int32_value = 2;
+}
+
+message Nested2 {
+    Nested1 nested2_nested1 = 1;
+}
+
+message Nested3 {
+    repeated Nested2 nested3_nested2 = 1;
+}
+
+message Nested4 {
+    repeated Nested3 nested4_nested3 = 1;
+}
